@@ -1,0 +1,19 @@
+
+# Provide a block for each file you want to parase to a template.
+# The first key is the name of the file..
+index.html:
+  # Specify the class to search for. This must be unique of course.
+  class: topbar
+
+  # Provide the template that you want to write to..
+  # This is relative to your template base, provided in the arguments.
+  template: common/topbar.html
+
+  # Make sure to use the | here.. so you get a multi-line prefix.
+  # This is added to the template file at the start of the file.
+  prefix: |
+    {% load url from future %}
+    {% load staticfiles %}
+    {% load i18n %}
+
+

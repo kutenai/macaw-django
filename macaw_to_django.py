@@ -11,7 +11,7 @@ def main():
     parser.add_argument("definitions",
                         help="The YAML definitions files.")
 
-    parser.add_argument("tempate_dir",
+    parser.add_argument("template_dir",
                         help="The Template base dir")
 
     parser.add_argument("design_paths",
@@ -20,9 +20,10 @@ def main():
 
     args = parser.parse_args()
 
-    updater = TemplateUpdater(args.definitions, args.design_paths)
+    updater = TemplateUpdater(args.definitions)
 
-    updater.watch(args.design_paths[0])
+    updater.watch(designbase=args.design_paths[0],
+                  templatebase=args.template_dir)
 
 
 if __name__ == "__main__":
